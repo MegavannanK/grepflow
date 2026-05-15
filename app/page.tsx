@@ -389,23 +389,46 @@ export default function Home() {
 
             {/* Hero Cards at the bottom of the section */}
             <div className="w-full max-w-[1000px] flex justify-center items-end gap-5 h-[320px] relative translate-y-16">
-              <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.7, duration: 0.8 }} className="w-[280px] h-[260px] bg-[#121212] rounded-t-[24px] border border-white/10 relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" alt="Tech" className="w-full h-full object-cover opacity-60 mix-blend-luminosity" />
-                <div className="absolute inset-0 bg-[#00d261]/10 mix-blend-overlay"></div>
-                <div className="absolute top-5 left-5 w-10 h-10 bg-[#00d261] rounded-[14px] flex items-center justify-center text-black font-bold text-xl"><Network className="w-5 h-5"/></div>
+              {/* Left Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 80, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.8, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="w-[280px] h-[260px]"
+              >
+                <motion.div
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                  className="w-full h-full bg-[#121212] rounded-t-[24px] border border-white/10 relative overflow-hidden"
+                >
+                  <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" alt="Tech" className="w-full h-full object-cover opacity-60 mix-blend-luminosity" />
+                  <div className="absolute inset-0 bg-[#00d261]/10 mix-blend-overlay"></div>
+                  <div className="absolute top-5 left-5 w-10 h-10 bg-[#00d261] rounded-[14px] flex items-center justify-center text-black font-bold text-xl"><Network className="w-5 h-5"/></div>
+                </motion.div>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.8, duration: 0.8 }} className="w-[400px] h-[320px] bg-[#121212] rounded-t-[24px] border-t border-l border-r border-white/10 p-6 flex flex-col relative shadow-[0_-20px_40px_rgba(0,0,0,0.5)] z-10">
-                 <div className="flex justify-between items-center text-[11px] text-gray-500 font-mono mb-5 border-b border-white/5 pb-4">
+              {/* Center Card (enters first) */}
+              <motion.div
+                initial={{ opacity: 0, y: 80, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.7, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="w-[400px] h-[320px] relative z-10"
+              >
+                <motion.div
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+                  className="w-full h-full bg-[#121212] rounded-t-[24px] border-t border-l border-r border-white/10 p-6 flex flex-col relative shadow-[0_-20px_40px_rgba(0,0,0,0.5)]"
+                >
+                  <div className="flex justify-between items-center text-[11px] text-gray-500 font-mono mb-5 border-b border-white/5 pb-4">
                     <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#00d261]"></span> Internal R&D</div>
                     <div className="text-gray-500">Status: <span className="text-[#00d261]">Active</span></div>
-                 </div>
-                 <div className="flex justify-between items-start mb-6">
-                   <h3 className="text-lg font-bold text-white tracking-tight">Experiment Alpha</h3>
-                   <span className="bg-[#00d261]/10 text-[#00d261] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#00d261]/20">Cloud Orchestrator</span>
-                 </div>
-                 <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">Live Telemetry</div>
-                 <div className="space-y-2 flex-1 overflow-hidden relative">
+                  </div>
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-lg font-bold text-white tracking-tight">Experiment Alpha</h3>
+                    <span className="bg-[#00d261]/10 text-[#00d261] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#00d261]/20">Cloud Orchestrator</span>
+                  </div>
+                  <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">Live Telemetry</div>
+                  <div className="space-y-2 flex-1 overflow-hidden relative">
                     <div className="bg-white/5 rounded-xl p-3 border border-white/5">
                       <div className="text-gray-200 text-xs font-semibold mb-1 flex items-center gap-2">Predictive Load Balancing</div>
                       <div className="text-gray-500 text-[10px] leading-relaxed line-clamp-2">Machine learning models dynamically scaled microservices 45ms before traffic spike detection.</div>
@@ -414,16 +437,29 @@ export default function Home() {
                       <div className="text-gray-200 text-xs font-semibold mb-1 flex items-center gap-2">Zero-Trust Node Connected</div>
                       <div className="text-gray-500 text-[10px] leading-relaxed line-clamp-2">Encrypted routing established across multi-region deployment.</div>
                     </div>
-                 </div>
-                 <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#121212] to-transparent pointer-events-none"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#121212] to-transparent pointer-events-none"></div>
+                </motion.div>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.9, duration: 0.8 }} className="w-[280px] h-[260px] bg-[#121212] rounded-t-[24px] border border-white/10 relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="Code" className="w-full h-full object-cover opacity-80 mix-blend-luminosity" />
-                <div className="absolute inset-0 bg-[#00d261]/10 mix-blend-overlay"></div>
-                <div className="absolute bottom-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center text-black shadow-lg">
-                  <ArrowUpRight className="w-5 h-5" />
-                </div>
+              {/* Right Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 80, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.8, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="w-[280px] h-[260px]"
+              >
+                <motion.div
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
+                  className="w-full h-full bg-[#121212] rounded-t-[24px] border border-white/10 relative overflow-hidden"
+                >
+                  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="Code" className="w-full h-full object-cover opacity-80 mix-blend-luminosity" />
+                  <div className="absolute inset-0 bg-[#00d261]/10 mix-blend-overlay"></div>
+                  <div className="absolute bottom-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center text-black shadow-lg">
+                    <ArrowUpRight className="w-5 h-5" />
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
@@ -433,76 +469,106 @@ export default function Home() {
       {/* --- REST OF PAGE --- */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.5 }} className="w-full bg-white rounded-t-[32px] md:rounded-t-[48px] relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] -mt-10">
         
-        {/* FOLD 2: Our Firm (Vision Quote with Frame-by-Frame Mask Stagger Reveal) */}
-        <section id="firm" className="pt-32 pb-24 px-6 max-w-[1000px] mx-auto text-center">
-          <motion.h2 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true, margin: "-100px" }} 
-            variants={quoteContainer} 
-            className="text-[32px] md:text-[40px] font-medium leading-[1.3] tracking-tight"
-          >
-            {/* Split "Beyond Code. We Build Cognitive Ecosystems." */}
-            {"Beyond Code. We Build Cognitive Ecosystems.".split(" ").map((word, i) => (
-              <React.Fragment key={`b1-${i}`}>
-                <span className="inline-flex overflow-hidden pb-2 -mb-2 align-bottom">
-                  <motion.span variants={maskedWordVariants} className="text-black inline-block origin-bottom">
-                    {word}
-                  </motion.span>
-                </span>
-                <span> </span>
-              </React.Fragment>
-            ))}
-            
-            {/* The Logo Icon inline */}
-            <span className="inline-flex overflow-hidden pb-2 -mb-2 align-middle mx-1">
-              <motion.span variants={maskedWordVariants} className="inline-flex items-center justify-center w-8 h-8 bg-[#00d261]/10 rounded-full border border-[#00d261]/20">
-                <svg width="14" height="14" viewBox="0 0 32 32" fill="none"><path d="M16 4L28 24H4L16 4Z" fill="#00d261"/></svg>
-              </motion.span>
-            </span>
-            <span> </span>
+        {/* FOLD 2: Our Firm (Line-by-Line Color Highlight) */}
+        {(() => {
+          const FIRM_LINES = [
+            "Beyond Code. We Build Cognitive Ecosystems.",
+            "A new paradigm in technology consulting.",
+            "We don't just write code;",
+            "we engineer leverage.",
+          ];
 
-            {/* Split "A new paradigm in technology consulting. We don't just write code; we engineer leverage." */}
-            {"A new paradigm in technology consulting. We don't just write code; we engineer leverage.".split(" ").map((word, i) => (
-              <React.Fragment key={`b2-${i}`}>
-                <span className="inline-flex overflow-hidden pb-2 -mb-2 align-bottom">
-                  <motion.span variants={maskedWordVariants} className="text-gray-400 inline-block origin-bottom">
-                    {word}
-                  </motion.span>
-                </span>
-                <span> </span>
-              </React.Fragment>
-            ))}
-          </motion.h2>
-        </section>
+          const FirmSection = () => {
+            const sectionRef = useRef<HTMLDivElement>(null);
+            const [activeIndex, setActiveIndex] = useState(-1);
+            const hasFired = useRef(false);
+
+            useEffect(() => {
+              const el = sectionRef.current;
+              if (!el) return;
+              const observer = new IntersectionObserver(
+                ([entry]) => {
+                  if (entry.isIntersecting && !hasFired.current) {
+                    hasFired.current = true;
+                    FIRM_LINES.forEach((_, i) => {
+                      setTimeout(() => setActiveIndex(i), 500 + i * 600);
+                    });
+                    observer.disconnect();
+                  }
+                },
+                { threshold: 0.2 }
+              );
+              observer.observe(el);
+              return () => observer.disconnect();
+            }, []);
+
+            return (
+              <section ref={sectionRef} id="firm" className="pt-32 pb-24 px-6 max-w-[1000px] mx-auto text-center">
+                <h2 className="text-[32px] md:text-[40px] font-medium leading-[1.3] tracking-tight">
+                  {FIRM_LINES.map((line, i) => (
+                    <React.Fragment key={i}>
+                      {i === 1 && (
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-[#00d261]/10 rounded-full border border-[#00d261]/20 align-middle mx-1">
+                          <svg width="14" height="14" viewBox="0 0 32 32" fill="none"><path d="M16 4L28 24H4L16 4Z" fill="#00d261"/></svg>
+                        </span>
+                      )}
+                      <span
+                        style={{
+                          color: i <= activeIndex ? '#111111' : '#999999',
+                          transition: 'color 0.45s ease-out',
+                          display: i === 0 ? 'block' : 'inline',
+                          marginBottom: i === 0 ? '8px' : undefined,
+                        }}
+                      >
+                        {line}
+                      </span>
+                      {i > 0 && i < FIRM_LINES.length - 1 && ' '}
+                    </React.Fragment>
+                  ))}
+                </h2>
+              </section>
+            );
+          };
+          return <FirmSection />;
+        })()}
 
         {/* FOLD 3: Methodology (The Grepflow Protocol) */}
         <section id="methodology" className="py-24 px-6 max-w-[1200px] mx-auto border-t border-gray-100">
-          <div className="flex flex-col md:flex-row gap-16">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="md:w-1/3">
-              <h2 className="text-[44px] leading-tight font-bold mb-4 tracking-tight text-black">The Grepflow<br/>Protocol.</h2>
-              <p className="text-gray-500 text-[15px] leading-relaxed"><span className="text-black font-medium">Precision Engineering.</span><br/>Accelerated Delivery. Our 4-step methodology ensures bulletproof systems.</p>
+          {/* Header Row */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-4">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              <h2 className="text-[44px] leading-tight font-bold tracking-tight text-black">The Grepflow<br/>Protocol.</h2>
             </motion.div>
+            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-gray-500 text-[15px] leading-relaxed max-w-md">
+              <span className="text-black font-medium">Precision Engineering.</span><br/>Accelerated Delivery. Our 4-step methodology ensures bulletproof systems.
+            </motion.p>
+          </div>
 
-            <div className="md:w-2/3 flex flex-col md:flex-row gap-8">
-              <div className="w-full md:w-[220px] flex flex-col gap-3">
+          {/* Two Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* Card 1: Interactive Step Switcher */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+              {/* Step Buttons */}
+              <div className="p-5 pb-0 flex flex-wrap gap-2">
                 {[ { id: "01", title: "Discovery" }, { id: "02", title: "AI Dev" }, { id: "03", title: "Security" }, { id: "04", title: "Evolution" } ].map((step, idx) => (
-                  <button key={step.id} onClick={() => setActiveStep(idx)} className={`flex items-center justify-between px-6 py-4 rounded-full transition-all duration-300 font-semibold text-sm border ${activeStep === idx ? 'bg-[#09090b] text-white border-transparent shadow-lg scale-105' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-300'}`}>
+                  <button key={step.id} onClick={() => setActiveStep(idx)} className={`flex items-center gap-2 px-4 py-2.5 rounded-full transition-all duration-300 font-semibold text-xs border ${activeStep === idx ? 'bg-[#09090b] text-white border-transparent shadow-lg' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-300'}`}>
                     {step.id}. {step.title}
-                    {activeStep === idx ? <ArrowRight className="w-4 h-4" /> : <ArrowUpRight className="w-4 h-4 text-gray-400" />}
+                    {activeStep === idx ? <ArrowRight className="w-3 h-3" /> : <ArrowUpRight className="w-3 h-3 text-gray-400" />}
                   </button>
                 ))}
               </div>
-              
-              <div className="flex-1 h-[420px] relative rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-white">
+
+              {/* Step Content */}
+              <div className="h-[360px] md:h-[400px] relative">
                 <AnimatePresence mode="wait">
                   {activeStep === 0 && (
-                    <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="absolute inset-0 p-10 flex">
-                      <div className="w-1/2 flex flex-col justify-center">
-                        <h3 className="text-[36px] font-bold leading-tight mb-4 text-black tracking-tight">Discovery &<br/>Architecture</h3>
+                    <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="absolute inset-0 p-8 flex flex-col sm:flex-row gap-6">
+                      <div className="flex-1 flex flex-col justify-center">
+                        <h3 className="text-[28px] md:text-[32px] font-bold leading-tight mb-3 text-black tracking-tight">Discovery &<br/>Architecture</h3>
                         <p className="text-gray-500 text-sm">We map your landscape to<br/>architect a resilient foundation.</p>
                       </div>
-                      <div className="w-1/2 bg-[#f4fbf7] rounded-2xl border border-[#00d261]/20 p-6 relative overflow-hidden flex flex-col justify-center items-center">
+                      <div className="flex-1 bg-[#f4fbf7] rounded-2xl border border-[#00d261]/20 p-6 flex flex-col justify-center items-center min-h-[200px]">
                          <div className="w-24 h-24 border border-[#00d261] rounded-full flex items-center justify-center relative">
                             <div className="w-16 h-16 border border-[#00d261]/50 rounded-full flex items-center justify-center">
                                <Network className="w-6 h-6 text-[#00d261]"/>
@@ -513,29 +579,27 @@ export default function Home() {
                     </motion.div>
                   )}
                   {activeStep === 1 && (
-                    <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="absolute inset-0 bg-[#09090b] text-white p-10 flex flex-col items-center justify-center text-center relative">
+                    <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="absolute inset-0 bg-[#09090b] text-white p-8 flex flex-col items-center justify-center text-center relative">
                       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/30 via-[#09090b] to-[#09090b]"></div>
                       <div className="relative z-10 w-full">
-                        <div className="flex justify-between items-start mb-12">
+                        <div className="flex justify-between items-start mb-10">
                            <p className="text-gray-400 text-xs text-left max-w-[160px]">Utilizing state-of-the-art AI workflows, our engineering cycles are dramatically faster.</p>
                            <div className="w-8 h-8 bg-[#1a1c1a] border border-white/10 rounded-full flex items-center justify-center"><Code2 className="w-4 h-4 text-[#00d261]"/></div>
                         </div>
-                        
-                        <div className="relative h-24 w-full flex justify-center items-center mb-10">
+                        <div className="relative h-20 w-full flex justify-center items-center mb-8">
                            <div className="absolute top-1/2 left-0 w-full h-px bg-white/10"></div>
                            <div className="bg-[#1a1c1a] border border-white/10 text-white text-[10px] px-4 py-2 rounded-full absolute z-10">AI-Assisted Coding</div>
                            <div className="w-2.5 h-2.5 bg-[#00d261] rounded-full absolute top-2 left-[20%] shadow-[0_0_10px_#00d261]"></div>
                            <div className="w-1.5 h-1.5 bg-gray-500 rounded-full absolute bottom-2 left-[30%]"></div>
                         </div>
-
-                        <h3 className="text-[36px] font-bold leading-tight tracking-tight">AI-Augmented<br/>Development</h3>
+                        <h3 className="text-[28px] md:text-[32px] font-bold leading-tight tracking-tight">AI-Augmented<br/>Development</h3>
                       </div>
                     </motion.div>
                   )}
                   {activeStep === 2 && (
-                    <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="absolute inset-0 bg-white p-10 flex items-center justify-between">
-                       <div className="w-1/2 flex items-center justify-center">
-                          <div className="w-[160px] h-[240px] bg-gray-50 rounded-2xl shadow-sm border border-gray-100 flex flex-col p-4 gap-3 relative overflow-hidden">
+                    <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="absolute inset-0 bg-white p-8 flex flex-col sm:flex-row items-center gap-6">
+                       <div className="flex-1 flex items-center justify-center">
+                          <div className="w-[140px] h-[220px] bg-gray-50 rounded-2xl shadow-sm border border-gray-100 flex flex-col p-4 gap-3 relative overflow-hidden">
                              <div className="w-full bg-white rounded-xl p-3 border border-gray-100 relative z-10">
                                <div className="flex items-center gap-2 mb-2"><ShieldCheck className="w-4 h-4 text-[#00d261]"/><div className="w-12 h-2 bg-gray-200 rounded"></div></div>
                                <div className="text-[10px] text-gray-400">Pen-Testing: Pass</div>
@@ -547,25 +611,54 @@ export default function Home() {
                              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-[#00d261]/10 rounded-full blur-xl"></div>
                           </div>
                        </div>
-                       <div className="w-1/2 pl-6">
-                          <div className="w-12 h-12 bg-[#09090b] rounded-full flex items-center justify-center mb-6">
+                       <div className="flex-1">
+                          <div className="w-12 h-12 bg-[#09090b] rounded-full flex items-center justify-center mb-5">
                             <Lock className="w-5 h-5 text-white"/>
                           </div>
-                          <h3 className="text-[36px] font-bold leading-tight mb-4 text-black tracking-tight">Zero-Trust<br/>Deployment</h3>
+                          <h3 className="text-[28px] md:text-[32px] font-bold leading-tight mb-3 text-black tracking-tight">Zero-Trust<br/>Deployment</h3>
                           <p className="text-gray-500 text-[13px] leading-relaxed">Rigorous automated QA and continuous integration pipelines ensure production is bulletproof.</p>
                        </div>
                     </motion.div>
                   )}
                   {activeStep === 3 && (
-                    <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="absolute inset-0 bg-[#f4fbf7] p-10 flex flex-col justify-center items-center text-center">
-                       <RefreshCw className="w-16 h-16 text-[#00d261] mb-6 animate-[spin_4s_linear_infinite]" />
-                       <h3 className="text-[36px] font-bold leading-tight mb-4 text-black tracking-tight">Continuous<br/>Evolution</h3>
+                    <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="absolute inset-0 bg-[#f4fbf7] p-8 flex flex-col justify-center items-center text-center">
+                       <RefreshCw className="w-14 h-14 text-[#00d261] mb-5 animate-[spin_4s_linear_infinite]" />
+                       <h3 className="text-[28px] md:text-[32px] font-bold leading-tight mb-3 text-black tracking-tight">Continuous<br/>Evolution</h3>
                        <p className="text-gray-600 text-sm max-w-[250px]">Modular systems designed to learn, adapt, and integrate new AI models dynamically.</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Card 2: Scale With Confidence */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-[#09090b] rounded-3xl border border-white/10 overflow-hidden p-8 flex flex-col justify-between min-h-[460px] md:min-h-0">
+              {/* Agent Avatars Grid */}
+              <div className="flex-1 flex items-center justify-center py-6">
+                <div className="grid grid-cols-3 gap-4">
+                  {[
+                    { emoji: "🤖", label: "Growth" },
+                    { emoji: "🛡️", label: "Support" },
+                    { emoji: "⚡", label: "Ops" },
+                    { emoji: "📊", label: "Analytics" },
+                    { emoji: "🧠", label: "Strategy" },
+                    { emoji: "🔗", label: "Integrate" },
+                  ].map((agent, i) => (
+                    <div key={i} className="w-[72px] h-[72px] bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-colors">
+                      <span className="text-xl">{agent.emoji}</span>
+                      <span className="text-[9px] text-gray-500 font-medium">{agent.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Card Text */}
+              <div>
+                <h3 className="text-[28px] md:text-[32px] font-bold leading-tight mb-3 text-white tracking-tight">Scale With<br/>Confidence</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">Autonomous agents handle growth, support, and ops — so you can focus on what matters most.</p>
+              </div>
+            </motion.div>
+
           </div>
         </section>
 
@@ -692,26 +785,81 @@ export default function Home() {
         </section>
 
         {/* FOLD 7: Integrations Marquee (Sectors) */}
-        <section className="py-24 px-6 max-w-4xl mx-auto text-center border-t border-gray-100">
-          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-[32px] md:text-[40px] font-medium leading-[1.3] text-gray-900 tracking-tight mb-12">
-            Build the next unicorn with Grepflow.<br/>
-            Engineered for the absolute edge of <span className="inline-flex items-center justify-center w-[40px] h-[40px] bg-[#00d261] text-black rounded-full mx-2 align-middle shadow-[0_0_15px_rgba(0,210,97,0.4)]"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> performance across all modern sectors.
-          </motion.p>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }} viewport={{ once: true }} className="flex flex-wrap justify-center gap-3">
-             <span className="px-5 py-3 bg-white border border-gray-200 shadow-sm rounded-xl text-gray-700 font-bold text-sm flex items-center gap-3">
-               <div className="w-6 h-6 rounded-md bg-blue-600 flex items-center justify-center text-white text-xs"><Cloud className="w-3 h-3"/></div> Enterprise Cloud
-             </span>
-             <span className="px-5 py-3 bg-white border border-gray-200 shadow-sm rounded-xl text-gray-700 font-bold text-sm flex items-center gap-3">
-               <div className="w-6 h-6 rounded-md bg-[#00d261] flex items-center justify-center text-black text-[10px]"><HeartPulse className="w-3 h-3"/></div> Healthcare IT
-             </span>
-             <span className="px-5 py-3 bg-white border border-gray-200 shadow-sm rounded-xl text-gray-700 font-bold text-sm flex items-center gap-3">
-               <div className="w-6 h-6 rounded-md border border-gray-200 flex items-center justify-center text-black"><Box className="w-3 h-3"/></div> SaaS Platforms
-             </span>
-             <span className="px-5 py-3 bg-white border border-gray-200 shadow-sm rounded-xl text-gray-700 font-bold text-sm flex items-center gap-3">
-               <div className="w-6 h-6 rounded-md bg-[#00d261] flex items-center justify-center text-black text-xs"><BrainCircuit className="w-3 h-3"/></div> AI Startups
-             </span>
-          </motion.div>
-        </section>
+        {(() => {
+          const SECTOR_LINES = [
+            "Build the next unicorn with Grepflow.",
+            "Engineered for the absolute edge of performance across all modern sectors.",
+          ];
+
+          const SectorSection = () => {
+            const sectionRef = useRef<HTMLDivElement>(null);
+            const [activeIndex, setActiveIndex] = useState(-1);
+            const hasFired = useRef(false);
+
+            useEffect(() => {
+              const el = sectionRef.current;
+              if (!el) return;
+              const observer = new IntersectionObserver(
+                ([entry]) => {
+                  if (entry.isIntersecting && !hasFired.current) {
+                    hasFired.current = true;
+                    SECTOR_LINES.forEach((_, i) => {
+                      setTimeout(() => setActiveIndex(i), 500 + i * 600);
+                    });
+                    observer.disconnect();
+                  }
+                },
+                { threshold: 0.2 }
+              );
+              observer.observe(el);
+              return () => observer.disconnect();
+            }, []);
+
+            return (
+              <section ref={sectionRef} className="py-24 px-6 max-w-4xl mx-auto text-center border-t border-gray-100">
+                <p className="text-[32px] md:text-[40px] font-medium leading-[1.3] tracking-tight mb-12">
+                  {SECTOR_LINES.map((line, i) => (
+                    <React.Fragment key={i}>
+                      <span
+                        style={{
+                          color: i <= activeIndex ? '#111111' : '#999999',
+                          transition: 'color 0.45s ease-out',
+                          display: 'block',
+                          marginBottom: i === 0 ? '4px' : undefined,
+                        }}
+                      >
+                        {i === 1 ? (
+                          <>
+                            Engineered for the absolute edge of{' '}
+                            <span className="inline-flex items-center justify-center w-[40px] h-[40px] bg-[#00d261] text-black rounded-full mx-2 align-middle shadow-[0_0_15px_rgba(0,210,97,0.4)]">
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </span>
+                            {' '}performance across all modern sectors.
+                          </>
+                        ) : line}
+                      </span>
+                    </React.Fragment>
+                  ))}
+                </p>
+                <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }} viewport={{ once: true }} className="flex flex-wrap justify-center gap-3">
+                   <span className="px-5 py-3 bg-white border border-gray-200 shadow-sm rounded-xl text-gray-700 font-bold text-sm flex items-center gap-3">
+                     <div className="w-6 h-6 rounded-md bg-blue-600 flex items-center justify-center text-white text-xs"><Cloud className="w-3 h-3"/></div> Enterprise Cloud
+                   </span>
+                   <span className="px-5 py-3 bg-white border border-gray-200 shadow-sm rounded-xl text-gray-700 font-bold text-sm flex items-center gap-3">
+                     <div className="w-6 h-6 rounded-md bg-[#00d261] flex items-center justify-center text-black text-[10px]"><HeartPulse className="w-3 h-3"/></div> Healthcare IT
+                   </span>
+                   <span className="px-5 py-3 bg-white border border-gray-200 shadow-sm rounded-xl text-gray-700 font-bold text-sm flex items-center gap-3">
+                     <div className="w-6 h-6 rounded-md border border-gray-200 flex items-center justify-center text-black"><Box className="w-3 h-3"/></div> SaaS Platforms
+                   </span>
+                   <span className="px-5 py-3 bg-white border border-gray-200 shadow-sm rounded-xl text-gray-700 font-bold text-sm flex items-center gap-3">
+                     <div className="w-6 h-6 rounded-md bg-[#00d261] flex items-center justify-center text-black text-xs"><BrainCircuit className="w-3 h-3"/></div> AI Startups
+                   </span>
+                </motion.div>
+              </section>
+            );
+          };
+          return <SectorSection />;
+        })()}
 
       </motion.div>
 
